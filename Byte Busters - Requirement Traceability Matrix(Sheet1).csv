@@ -1,0 +1,47 @@
+Requirement ID,Associated ID,Requirement Description,,Test Case Description
+1,1,Registration,,
+1,1.1,User should be able to register an account.,Positive,"Given valid data, user should be able to create an account."
+1,1.2,User should be unable to register an account.,Negative,"Given too long username, user should not be able to register."
+1,1.3,User should be unable to register an account.,Negative,"Given too long password, user should not be able to register."
+2,2,Login,,
+2,2.1,User should be able to login.,Positive,"Given valid login credentials, user should be able to reach the home page."
+2,2.2,User should be unable login.,Negative,"Given invalid username, user should be unable to login."
+2,2.3,User should be unable to login.,Negative,"Given invalid password, user should be unable to login."
+3,3,Planet Searching,,
+3,3.1,User should see their planets.,Positive,"Given a logged in user, given the user owns a planet, user should see their planets on the home screen."
+3,3.2,User shouldn't see other users planets.,Negative,"Given a logged in user, user should not see planets they don't own."
+,,Planet Name Search,,
+3,3.3,User should be able to search for their planets by name.,Positive,"Given a logged in user, a user should be able to search for planets by name."
+3,3.4,User should be unable to search for planets they don't own by name.,Negative,"Given a logged in user, a user should not find a planet they don't own by name."
+3,3.5,User should be shown an error message when no planet exists by name.,Negative,"Given a logged in user, a user should be shown an error message if they enter a name not in the database."
+,,Planet ID Search,,
+3,3.6,User should be able to search for their planets by ID.,Positive,"Given a logged in user, a user should be able to search for planets by ID."
+3,3.7,User should be unable to search for planets they don't own by ID.,Negative,"Given a logged in user, a user should not find a planet they don't own by ID."
+3,3.8,User should be shown an error message when no planet exists by ID.,Negative,"Given a logged in user, a user should be shown an error message if they enter a ID not in the database."
+,,Planet Creation,,
+4,4.1,User should be able to add a planet.,Positive,"Given a logged in user, a user should be able to add a planet."
+4,4.2,User should be unable to add a planet with a too-long name.,Negative,"Given a logged in user, a user should be unable to add a planet with a name longer than 30 characters."
+4,4.3,User should be unable to add a planet with a non-unique name.,Negative,"Given a logged in user, a user should be unable to add a planet with a name that already exists."
+,,Planet Deletion,,
+5,5.1,Users should be able to delete their planets.,Positive,"Given a logged in user, given a planet the user owns, the user should be able to delete their planet."
+5,5.2,Users should be unable to delete a planet they don't own.,Negative,"Given a logged in user, a user should be unable to delete another user's planet."
+5,5.3,Users should be unable to delete a planet that doesn't exist.,Negative,"Given a logged in user, a user should be unable to delete a planet that doesn't exist."
+5,5.4,Planets deleted with a moon should also delete the moon.,Positive,"Given a logged in user, given a planet the user owns, given the planet has moons, given the planet is being deleted, the moons should be deleted."
+,,Moon Searching,,
+6,6.1,User should see their moons.,Positive,"Given a logged in user, given the user owns a planet with moons, the user should see their planets on the home screen."
+6,6.2,User should not see moons they don't own.,Positive,"Given a logged in user, the user should not see other users' moons."
+,,Moon Name Searching,,
+6,6.3,User should be able to search for their moons by name.,Positive,"Given a logged in user, given the user owns a planet with moons, the user should see their moon when searching for it by name."
+6,6.4,User should be unable to search for moons they don't own by name.,Negative,"Given a logged in user, a user should be unable to see another user's moon, when searched by name."
+,,Moon ID Search,,
+6,6.1,User should be able to search for their moons by ID.,Positive,"Given a logged in user, given the user owns a planet with moons, a user should be able to search for moons by ID."
+6,6.2,User should be unable to search for moons they don't own by ID.,Negative,"Given a logged in user, a user should not find a moon they don't own by ID."
+,,Moon Creation,,
+7,7.1,User should be able to add a moon.,Positive,"Given a logged in user, given a planet the user owns, a user should be able to add a new moon on that planet."
+7,7.2,User should be unable to add a moon with a too-long name.,Negative,"Given a logged in user, a user should be unable to add a moon with a name exceeding 30 characters."
+7,7.3,User should be unable to add a moon with a non-unique name.,Negative,"Given a logged in user, a user should be unable to add a moon with a name that already exists."
+7,7.4,User should be unable to add a moon on a planet they don't own.,Negative,"Given a logged in user, given another user owns a planet, a user should be unable to add a moon on a planet they don't own."
+7,7.5,User should be unable to add a moon to a planet that doesn't exist.,Negative,"Given a logged in user, a user should be unable to add a moon to a planet that doesn't exist."
+,,Moon Deletion,,
+8,8.1,User should be able to delete a moon they own.,Positive,"Given a logged in user, given a planet the user owns, given a moon the user owns, a user should be able to delete their moon."
+8,8.2,User should not be able to delete another user's moon.,Negative,"Given a logged in user, given the ID of a moon the user doesn't own, a user should be unable to delete a moon they don't own."
