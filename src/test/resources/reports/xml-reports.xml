@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="17" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="38" time="37.944">
+    <testcase classname="A User wants to delete a Moon" name="A user wants to delete a Moon by ID" time="1.798">
+        <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user goes to the log in page......................................passed
+When The user can enters "test1" and "test1"................................passed
+And The user selects the login button.......................................passed
+Then The user should be redirected to the Home page for their account.......passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The User enters a "5" in the Delete Field..............................passed
+When The User selects the Delete Button.....................................passed
+Then Moon with ID "5" is Deleted from the Database..........................failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.MoonDeletionSteps.moon_with_ID_is_Deleted_from_the_Database(MoonDeletionSteps.java:21)
+	at ✽.Moon with ID "5" is Deleted from the Database(classpath:features/DeleteMoon.feature:18)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="A User wants to delete a Moon" name="A user wants to Delete a Moon they do not have access to" time="0.725">
+        <failure message="expected:&lt;1&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user goes to the log in page......................................passed
+When The user can enters "test1" and "test1"................................passed
+And The user selects the login button.......................................passed
+Then The user should be redirected to the Home page for their account.......passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The User enters a "4" in the Delete Field that belongs to another User.passed
+When The User selects the Delete Button.....................................passed
+Then Moon with ID "4" is not Deleted from the Database......................failed
+
+StackTrace:
+java.lang.AssertionError: expected:<1> but was:<0>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.MoonDeletionSteps.moon_with_ID_is_not_Deleted_from_the_Database(MoonDeletionSteps.java:28)
+	at ✽.Moon with ID "4" is not Deleted from the Database(classpath:features/DeleteMoon.feature:28)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Creation" name="As a user I should be able to create moon with a unique name that orbits an existing planet" time="0.977">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "test"..............................passed
+When The user enters their planet id "1"....................................passed
+When The user hits the create moon button...................................passed
+Then The user should see their new moon in the homepage "test"..............passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should be able to create a moon with a name that has 0 characters that orbits an existing planet" time="1.687">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name ""..................................passed
+When The user enters their planet id "1"....................................passed
+When The user hits the create moon button...................................passed
+Then The user should see their new moon in the homepage ""..................failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PositiveUniqueMoonCreation.the_user_should_see_their_new_moon_in_the_homepage(PositiveUniqueMoonCreation.java:74)
+	at ✽.The user should see their new moon in the homepage ""(classpath:features/MoonCreation.feature:35)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should be able to create a moon with a name that has 30 characters that orbits an existing planet" time="1.097">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "STANSTANSTANSTANSTANSTANSTANST"....passed
+When The user enters their planet id "1"....................................passed
+When The user hits the create moon button...................................passed
+Then The user should see their new moon in the homepage "STANSTANSTANSTANSTANSTANSTANST".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As a user I should be able to create moon with a unique name that orbits an existing planet's name" time="0.961">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "testMoonCreationMoon"..............passed
+When The user enters their planet name "testMoonCreationPlanet".............passed
+When The user hits the create moon button...................................passed
+Then The user should see their new moon in the homepage "testMoonCreationMoon".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should be able to create a moon with a name that has 30 characters that orbits an existing planet's name" time="0.94">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "RANDYRANDYRANDYRANDYRANDYRANDY"....passed
+When The user enters their planet name "testMoonCreationPlanet".............passed
+When The user hits the create moon button...................................passed
+Then The user should see their new moon in the homepage "RANDYRANDYRANDYRANDYRANDYRANDY".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should not be able to create a moon with a non-unique name that orbits an existing planet" time="0.706">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a non-unique moon name "testUniqueMoonNegative"........passed
+When The user enters their planet id "50"...................................passed
+When The user hits the create moon button...................................passed
+Then The user should not see two moons of the same name in the homepage "testUniqueMoonNegative".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As a user I should be not able to create moon with a unique name that orbits an non-existing planet" time="0.884">
+        <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "testNoPlanetMoonNegative"..........passed
+When The user enters the non-existing planet id "404".......................passed
+When The user hits the create moon button...................................passed
+Then The user should not see their new moon in the homepage "testNoPlanetMoonNegative".failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.NegativeMoonCreationSteps.the_user_should_not_see_their_new_moon_in_the_homepage(NegativeMoonCreationSteps.java:44)
+	at ✽.The user should not see their new moon in the homepage "testNoPlanetMoonNegative"(classpath:features/MoonCreation.feature:105)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should not be able to create a moon with a name that has 31 characters that orbits an existing planet" time="1.701">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique long moon name "KENNYKENNYKENNYKENNYKENNYKENNYK".passed
+When The user enters their planet id "50"...................................passed
+When The user hits the create moon button...................................passed
+Then The user should not see their new moon in the homepage "KENNYKENNYKENNYKENNYKENNYKENNYK".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should not be able to create a moon with a non-unique name that orbits an existing planet's name" time="0.914">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a non-unique moon name "testUniqueMoonNegative"........passed
+When The user enters their planet name "testMoonCreationPlanet".............passed
+When The user hits the create moon button...................................passed
+Then The user should not see two moons of the same name in the homepage "testUniqueMoonNegative".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As a user I should be not able to create moon with a unique name that orbits an non-existing planet's name" time="1.66">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique moon name "testCreateMoonOnNonExtantPlanetNegative".passed
+When The user enters the non-existing planet name "testNonExtantPlanet".....passed
+When The user hits the create moon button...................................passed
+Then The user should not see their new moon in the homepage "testCreateMoonOnNonExtantPlanetNegative".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Creation" name="As as user I should not be able to create a moon with a name that has 31 characters that orbits an existing planet's name" time="1.663">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+Then The planet should exist within the celestial body list "1".............passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user selects Moon option...........................................passed
+Then The user should see two input fields...................................passed
+When The user enters a unique long moon name "CARTMANCARTMANCARTMANCARTMANCAR".passed
+When The user enters their planet name "testMoonCreationPlanet".............passed
+When The user hits the create moon button...................................passed
+Then The user should not see their new moon in the homepage "CARTMANCARTMANCARTMANCARTMANCAR".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Moon Search" name="A user should be able to search for their moons by name." time="1.445">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user inputs "MoonSearchPositive"...................................passed
+When The user clicks the Moon Search button.................................passed
+Then The user should see only the moon "MoonSearchPositive".................failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PositiveMoonSearch.the_user_should_see_only_the_moon(PositiveMoonSearch.java:34)
+	at ✽.The user should see only the moon "MoonSearchPositive"(classpath:features/MoonSearch.feature:15)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Search" name="A user should not be able to search for moons they don't own by name." time="0.427">
+        <failure message="expected:&lt;0&gt; but was:&lt;9&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user inputs "MoonSearchNegative"...................................passed
+When The user clicks the Moon Search button.................................passed
+Then The user should see nothing............................................failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<9>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.NegativeMoonSearch.the_user_should_see_nothing(NegativeMoonSearch.java:12)
+	at ✽.The user should see nothing(classpath:features/MoonSearch.feature:28)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Search" name="A user should be able to search for their moons by ID." time="1.451">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user inputs "60"...................................................passed
+When The user clicks the Moon Search button.................................passed
+Then The user should see only the moon "60".................................failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PositiveMoonSearch.the_user_should_see_only_the_moon(PositiveMoonSearch.java:34)
+	at ✽.The user should see only the moon "60"(classpath:features/MoonSearch.feature:41)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Moon Search" name="A user should not be able to search for moons they don't own by ID." time="0.403">
+        <failure message="expected:&lt;0&gt; but was:&lt;9&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user inputs "61"...................................................passed
+When The user clicks the Moon Search button.................................passed
+Then The user should see nothing............................................failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<9>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.NegativeMoonSearch.the_user_should_see_nothing(NegativeMoonSearch.java:12)
+	at ✽.The user should see nothing(classpath:features/MoonSearch.feature:54)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Planet Creation" name="A user should be able to add a planet given a unique name" time="1.797">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When When The User sets the dropdown menu to Planet.........................passed
+Given There is no planet with name "testPlanetCreationPositive".............passed
+When The user enters a "testPlanetCreationPositive".........................passed
+When The user clicks the submit button......................................passed
+Then The user should see their new planet in the homepage "testPlanetCreationPositive".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Planet Creation" name="A user should be able to add a planet with 30 characters" time="1.798">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When When The User sets the dropdown menu to Planet.........................passed
+Given There is no planet with name "123456789012345678901234567890".........passed
+When The user enters a "123456789012345678901234567890".....................passed
+When The user clicks the submit button......................................passed
+Then The user should see their new planet in the homepage "123456789012345678901234567890".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Planet Creation" name="A user should not be able to add a planet given a name that already exists" time="0.451">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user enters a "testPCreateUniqueNegative"..........................passed
+When The user clicks the submit button......................................passed
+Then The user should not see a second copy of their planet in the homepage "testPCreateUniqueNegative".passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="Planet Creation" name="A user should not be able to add a planet given a name that is longer than 30 character" time="1.463">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When When The User sets the dropdown menu to Planet.........................passed
+When The user enters a "1234567890123456789012345678901"....................passed
+When The user clicks the submit button......................................passed
+Then The user should not see "1234567890123456789012345678901" in the homepage.passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="A User wants to delete a Planet" name="A user wants to delete a Planet by ID" time="0.576">
+        <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user goes to the log in page......................................passed
+When The user can enters "test1" and "test1"................................passed
+And The user selects the login button.......................................passed
+Then The user should be redirected to the Home page for their account.......passed
+When The User sets the dropdown menu to Planet..............................passed
+When The User enters a "9" in the Delete Field..............................passed
+When The User selects the Delete Button.....................................passed
+Then Planet with ID "9" is Deleted from the Database........................failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.PlanetDeletionSteps.the_Planet_is_Deleted_from_the_Database(PlanetDeletionSteps.java:68)
+	at ✽.Planet with ID "9" is Deleted from the Database(classpath:features/deleteplanet.feature:16)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="A User wants to delete a Planet" name="A user wants to delete a Planet by Name" time="0.604">
+        <failure message="expected:&lt;0&gt; but was:&lt;1&gt;" type="java.lang.AssertionError">
+            <![CDATA[Given The user goes to the log in page......................................passed
+When The user can enters "test1" and "test1"................................passed
+And The user selects the login button.......................................passed
+Then The user should be redirected to the Home page for their account.......passed
+When The User sets the dropdown menu to Planet..............................passed
+When The User enters a "testPlanetDeleteNamePositive" in the Delete Field...passed
+When The User selects the Delete Button.....................................passed
+Then Planet with Name "testPlanetDeleteNamePositive" is Deleted from the Database.failed
+
+StackTrace:
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:633)
+	at com.revature.steps.PlanetDeletionSteps.planet_with_Name_is_Deleted_from_the_Database(PlanetDeletionSteps.java:74)
+	at ✽.Planet with Name "testPlanetDeleteNamePositive" is Deleted from the Database(classpath:features/deleteplanet.feature:27)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="A User wants to delete a Planet" name="A user wants to Delete a Planet they do not have access to" time="0.559">
+        <system-out>
+            <![CDATA[Given The user goes to the log in page......................................passed
+When The user can enters "test1" and "test1"................................passed
+And The user selects the login button.......................................passed
+Then The user should be redirected to the Home page for their account.......passed
+When The User sets the dropdown menu to Planet..............................passed
+When The User enters a "7" in the Delete Field that belongs to another User.passed
+When The User selects the Delete Button.....................................passed
+Then Planet with ID "7" is not Deleted from the Database....................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should be able to log into a account" name="User can input their username and password to log into their account" time="0.26">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test" and "test"...................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should be able to log into a account" name="User can input their username and password to log into their account 2" time="0.344">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should not be able to log into a account" name="User can not input their username and password to login into their account" time="0.239">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can input "test" and "notPassword"............................passed
+And The user clicks the login button on the login page......................passed
+Then The user should be moved to the Home page of their account.............passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should not be able to log into a account" name="User can not input their username and password to login into their account 2" time="0.195">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can input "notValidName" and "test"...........................passed
+And The user clicks the login button on the login page......................passed
+Then The user should be moved to the Home page of their account.............passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should be unable to register an account" name="User can not input invalid data for username and passwords to create an account" time="0.298">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters invalid "test1" and "test1"............................passed
+When The user clicks upon create account button.............................passed
+Then The user should not receive an alert stating account creation successful.failed
+Then The user should not be redirected to the log in page...................skipped
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.revature.steps.RegistrationNegativeSteps.the_user_should_not_receive_an_alert_stating_account_creation_successful(RegistrationNegativeSteps.java:39)
+	at ✽.The user should not receive an alert stating account creation successful(classpath:features/negativeregistration.feature:12)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="User should be unable to register an account" name="User can not input invalid data for username and passwords to create an account 2" time="0.325">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters invalid "1234567890123456789012345678901" and "1"......passed
+When The user clicks upon create account button.............................passed
+Then The user should not receive an alert stating account creation successful.failed
+Then The user should not be redirected to the log in page...................skipped
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.revature.steps.RegistrationNegativeSteps.the_user_should_not_receive_an_alert_stating_account_creation_successful(RegistrationNegativeSteps.java:39)
+	at ✽.The user should not receive an alert stating account creation successful(classpath:features/negativeregistration.feature:12)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="User should be unable to register an account" name="User can not input invalid data for username and passwords to create an account 3" time="0.329">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters invalid "1" and "1234567890123456789012345678901"......passed
+When The user clicks upon create account button.............................passed
+Then The user should not receive an alert stating account creation successful.failed
+Then The user should not be redirected to the log in page...................skipped
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.revature.steps.RegistrationNegativeSteps.the_user_should_not_receive_an_alert_stating_account_creation_successful(RegistrationNegativeSteps.java:39)
+	at ✽.The user should not receive an alert stating account creation successful(classpath:features/negativeregistration.feature:12)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Planet Search" name="A user should be able to search a planet by name" time="1.588">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The users enters the name of "testPlanetSearchPositive"................passed
+Then The users should be able to view the Planet in the homepage "testPlanetSearchPositive".failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PlanetSearchSteps.the_users_should_be_able_to_view_the_Planet_in_the_homepage(PlanetSearchSteps.java:26)
+	at ✽.The users should be able to view the Planet in the homepage "testPlanetSearchPositive"(classpath:features/planetSearch.feature:13)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Planet Search" name="A user should not be able to search a planet they do not own" time="1.568">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user enters "testPlanetSearchNegative".............................passed
+Then The user should see no change in the view of the homepage "testPlanetSearchNegative".failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PlanetSearchSteps.the_user_should_see_no_change_in_the_view_of_the_homepage(PlanetSearchSteps.java:40)
+	at ✽.The user should see no change in the view of the homepage "testPlanetSearchNegative"(classpath:features/planetSearch.feature:21)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Planet Search" name="A user should be able to search for a planet by id" time="1.564">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The user enters the id of "1"..........................................passed
+Then The user should be able to view the Planet in the homepage "1".........failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PlanetSearchSteps.the_user_should_be_able_to_view_the_Planet_in_the_homepage(PlanetSearchSteps.java:54)
+	at ✽.The user should be able to view the Planet in the homepage "1"(classpath:features/planetSearch.feature:29)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Planet Search" name="A user should not be able to search for a planet by id they do not own" time="1.585">
+        <failure message="" type="java.lang.AssertionError">
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user can enter "test1" and "test1".................................passed
+And The user clicks the login button........................................passed
+Then The user should be redirected to the Home page of their account........passed
+When The users enters the id of "72"........................................passed
+Then The users should not see any changes to the homepage "72"..............failed
+
+StackTrace:
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.revature.steps.PlanetSearchSteps.the_users_should_not_see_any_changes_to_the_homepage(PlanetSearchSteps.java:68)
+	at ✽.The users should not see any changes to the homepage "72"(classpath:features/planetSearch.feature:37)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="User should be able to register an account" name="User can input a username and password to create an account" time="0.79">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters "Kevin1" and "Geer1"...................................passed
+When The user clicks on create account button...............................passed
+Then The user should receive an alert stating account creation successful...passed
+Then The user should be redirected to the log in page.......................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should be able to register an account" name="User can input a username and password to create an account 2" time="0.815">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters "123456789012345678901234567890" and "1"...............passed
+When The user clicks on create account button...............................passed
+Then The user should receive an alert stating account creation successful...passed
+Then The user should be redirected to the log in page.......................passed
+]]>
+        </system-out>
+    </testcase>
+    <testcase classname="User should be able to register an account" name="User can input a username and password to create an account 3" time="0.828">
+        <system-out>
+            <![CDATA[Given The user is in the log in page........................................passed
+When The user clicks the Create an Account link.............................passed
+Then The user should be redirected to the Create An Account Page............passed
+When The user enters "1" and "123456789012345678901234567890"...............passed
+When The user clicks on create account button...............................passed
+Then The user should receive an alert stating account creation successful...passed
+Then The user should be redirected to the log in page.......................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
