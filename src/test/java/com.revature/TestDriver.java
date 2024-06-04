@@ -31,18 +31,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
                 "json:src/test/resources/reports/json-reports.json",
                 "junit:src/test/resources/reports/xml-reports.xml"
         }
-        , tags = "@RegistrationPositive or @RegistrationNegative"
+//        , tags = "@RegistrationPositive or @RegistrationNegative"
 )
 
 public class TestDriver {
     // web driver instance
     public static WebDriver driver;
 
-        public static LoginPage loginPage;
+    public static LoginPage loginPage;
 
-        public static RegistrationPage regPage;
+    public static RegistrationPage regPage;
 
-        public static HomePage homePage;
+    public static HomePage homePage;
 
 
 

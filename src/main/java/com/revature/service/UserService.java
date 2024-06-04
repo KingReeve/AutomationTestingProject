@@ -34,13 +34,13 @@ public class UserService {
 			return new User();
 		}
 		if(registerRequestData.getUsername().length() <= 30 && registerRequestData.getPassword().length() <= 30){
-			User possibleUsername = dao.getUserByUsername(registerRequestData.getUsername()); 
+			User possibleUsername = dao.getUserByUsername(registerRequestData.getUsername());
 
 			if(possibleUsername != null){
 				UsernamePasswordAuthentication validCredentials = new UsernamePasswordAuthentication();
 				validCredentials.setUsername(registerRequestData.getUsername());
 				validCredentials.setPassword(registerRequestData.getPassword());
-				
+
 				return dao.createUser(validCredentials);
 			}
 		}
